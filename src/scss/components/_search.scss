@@ -1,0 +1,105 @@
+.search {
+	display: block;
+	margin: 15% auto 30px auto; 
+	position: relative;
+	text-align: center;
+	transition: margin-top 0.35s ease-in;
+	width: 100%;
+
+	h1 {
+		display: block;
+		font-size: 18px;
+		margin: 20px auto;
+		width: 70%;
+		text-align: left;
+		text-transform: uppercase;
+	}
+
+	fieldset {
+		width: auto;
+		position: relative;
+	}
+
+	input { 
+		width: 60%;
+		height: $searchElementsHeight;
+	}
+
+	button {
+		height: $searchElementsHeight;
+		margin-left: 20px; 
+		width: 10%;
+	}
+
+	div.error {
+		bottom: -10px;
+		color: white;
+		display: block;
+		font-size: 11px;
+		position: absolute;
+		width: 100%;
+
+		span {
+			background-color: darken(color(base, orange), 2%); 
+			border-radius: 0 0 ($borderRadius * 2) ($borderRadius * 2) ;
+			display: inline-block;
+			height: 16px;
+			line-height: 13px;
+			margin-right: 10%;
+			margin-left: -20px;
+			padding: 1px 10px;
+			text-align: left;
+			width: 60%;
+		}
+	}
+}
+
+.active .search {
+	margin-top: 5%;
+}
+
+
+
+@media screen and (max-width: ($notebookWidth + $marginDiff)) {
+	.search {
+		h1 {
+			width: 100%;
+		}
+
+		input {
+			width: 70%;
+		}
+
+		div.error span {
+	    margin-left: -12.5%;
+    	width: 70%;
+		}
+
+		button {
+			width: 20%;
+		}
+	}
+}
+
+@media screen and (max-width: ($tabletWidth + $marginDiff)) {
+	.search {
+		h1 {
+			font-size: 14px;
+		}
+
+		input {
+			width: 65%;
+		} 
+
+		div.error span {
+	    margin-left: -24%;
+    	width: 65%;
+		}
+
+		button {
+			margin-left: 4%;
+			width: 30%;
+		}
+	}
+}
+

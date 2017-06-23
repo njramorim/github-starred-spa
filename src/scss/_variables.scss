@@ -1,0 +1,55 @@
+//colors
+$black: #555555;
+$blue: #4078c0;
+$gray: #f5f5f5;
+$grayLigth: #fafafa;
+$grayDark: #333333;
+$green: #6cc644;
+$orange: #c9510c;
+$purple: #6e5494;
+$red: #bd2c00;
+$yellow: #f1e05a;
+ 
+$colors: (
+  text: $black,
+  background: white,
+  base: (
+    black: $black,
+    blue: $blue,
+    green: $green,
+    orange: $orange,
+    purple: $purple,
+    red: $red,
+    yellow: $yellow
+  ),
+  gray: (
+    default: $gray,
+    light: $grayLigth,
+    dark: $grayDark
+  )
+); 
+
+@function color($colorName, $colorVariant:null) {
+  @if ($colorVariant != null) {
+    @return map-get(map-get($colors, $colorName), $colorVariant);
+  } @else {
+    @return map-get($colors, $colorName);
+  }
+}
+
+//size
+$marginDiff: 20px;
+$phoneBigWidth: 500px;
+$tabletWidth: 700px;
+$notebookWidth: 900px;
+$desktopWidth: 1200px;
+$borderRadius: 3px;
+$searchElementsHeight: 50px;
+$cardImg: 50px;
+
+//transition
+
+@keyframes fadeIn{
+	0% {opacity: 0; transform: translateY(10%)}
+	100% {opacity: 1; transform: translateY(0)}
+}

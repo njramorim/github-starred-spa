@@ -1,0 +1,293 @@
+.cardWrap {
+	border-radius: $borderRadius * 2;
+	display: block; 
+	margin: 0px auto 30px auto; 
+	padding: 20px;
+	width: 100%;
+	opacity: 0;
+	animation: fadeIn 0.4s ease-in forwards;
+}
+
+.cardWrap .filter {
+  display: block;
+  margin: 0px auto 15px;
+  text-align: center;
+
+  span {  	
+    font-size: 12px;    
+    font-weight: 600;
+    padding-right: 5px;
+  }
+
+	select {
+		width: 70%;
+		max-width: 300px;
+	}
+}
+
+.cardWrap .cardOrder {
+	display: block;
+	text-align: center;
+	width: 100%;
+
+	li {
+		background-color: color(gray, default); 
+		border-radius: ($borderRadius * 2);
+		display: inline-block;
+		font-size: 12px;
+		font-weight: 700;
+		letter-spacing: -0.25px;
+		line-height: 20px;
+		margin: 10px 20px;
+		padding: 10px;
+
+		> * {
+			vertical-align: middle;
+		}
+
+		span{
+			display: inline-block;
+
+			&:after {
+				content: ': ';
+				display: inline;
+				padding-right: 5px;
+			}
+		}
+
+		a {
+			background-color: color(background);
+			border-radius: 50%;
+			cursor: pointer;
+			display: inline-block;
+			height: 20px;
+			margin: 0 5px;
+			overflow: hidden;
+			position: relative;
+			text-indent: -9999px;
+			width: 20px;
+
+			&:before {
+				border-color: color(base, blue) transparent transparent transparent;
+				border-style: solid;
+				border-width: 8px 5.5px 0 5.5px;
+				content:'';  
+				display: block;
+				height: 0;
+				margin: 7px auto;  
+				width: 0;
+			}
+
+			&:last-of-type:before {
+				border-color: transparent transparent color(base, green)transparent;
+				border-width: 0 5.5px 8px 5.5px;
+				margin: 6px auto; 
+			}
+
+			&:hover {
+				box-shadow: 0px 0px 4px rgba(black, 0.15);  
+			}
+
+			&:active {
+				opacity: 0.8;  
+			}
+		}
+	}
+}
+
+.cardWrap .cardList { 
+	align-content: flex-start;
+	align-items: flex-start;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin:0 auto;
+	width: 100%;
+
+	> li {
+		width: 30%;
+		margin: 20px 1%; 
+	}
+
+	.cardItem {
+		background-color: color(gray, light);
+		border: 1px solid color(gray, default);
+		border-radius: $borderRadius;
+		font-size: 14px;
+		line-height: 20px;
+		min-height: 300px + 50px; 
+		overflow: hidden; 
+		padding: 25px 20px;
+
+		.title h2 {
+			display: inline-block;
+			font-size: 16px;
+			font-weight: 700;
+			float: right;
+			line-height: 20px;
+			overflow: hidden;
+			padding-top: 5px;
+			text-align: left;
+			text-overflow: ellipsis;
+			width: calc( 100% - (#{$cardImg} + 10px) );
+		 	white-space: nowrap;
+		}
+
+		.definitions {
+			dt {
+				display: none;
+			}
+		}
+
+		.image {
+			display: inline-block;
+
+			img {
+				border-radius: 50%;
+				height: $cardImg;
+				overflow: hidden;
+				width: $cardImg;
+			}
+		}
+
+		.language {  
+			color: lighten(color(text), 15%); 
+			float: left;
+			font-size: 12px;
+			margin-left: $cardImg + 10px;
+			margin-top: -($cardImg / 1.5); 
+		}
+
+		.description {
+			background-color: rgba(color(background), 0.8);
+			padding: 5px 10px;
+			height: 150px;
+			overflow-y: auto;
+			margin: 5px auto 20px auto; 
+
+			&:before, &:after  {
+				content: '"';
+				display: inline;
+				font-size: 20px;
+				font-style: italic;
+				font-weight: 700;
+				opacity: 0.5;
+			}
+ 
+			&:before {
+				padding-right: 5px;
+			}
+
+			&:after {
+				padding-left: 5px;
+			}
+
+			dd {
+				display: inline;
+			}
+		}
+
+		.stars {
+			display: inline-block;
+			font-weight: 700;
+			margin-bottom:15px;
+			width: 40%;
+
+			> * {
+				vertical-align: middle;
+			}
+
+			svg {
+				fill: darken(color(base, yellow), 5%);
+				height: 20px;
+				width: 20px;
+			}
+
+			dd {
+				display: inline-block;
+				margin-left: 5px;
+			}
+		}
+
+		.issues {
+			display: inline-block;
+			font-weight: 700;
+			width: 40%;
+
+			> * { 
+				vertical-align: middle;
+			}
+
+			svg {
+				fill: darken(color(base, orange), 5%);
+				height: 20px;
+   		  transform: translate(3px, 2px);
+				transform-origin: center;
+				width: 20px;    
+			}
+ 
+			dd {
+				display: inline-block;
+				margin-left: 5px;
+			}
+		}
+
+		.created, 
+		.pushed {
+			display: block;
+			font-size: 12px;
+			line-height: 16px;
+
+			dt {
+				display: inline;
+				font-weight: 700;
+				padding-right: 5px;
+			}
+
+			dd {
+				display: inline;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: ($desktopWidth + $marginDiff)) {
+	.cardWrap .cardList > li {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: ($notebookWidth + $marginDiff)) {
+	.cardWrap {
+		padding: 10px 0;
+
+		.cardOrder li {
+			margin: 10px 1% ; 
+			padding: 10px 0px;
+			text-align: center;
+			width: 30%;
+
+			span {
+				display: block;
+			}
+		}
+
+		.cardList > li {
+	    width: 90%;
+	  }
+	}
+}
+
+@media screen and (max-width: ($phoneBigWidth + $marginDiff)) {
+	.cardWrap .cardList .cardItem {
+		.created, .pushed {
+			font-size: 11px;
+		}
+	}
+
+	.cardWrap li span {
+		line-height: 13px;
+		padding-bottom: 8px;
+	}
+}

@@ -1,0 +1,78 @@
+* {
+	box-sizing: border-box;
+}
+
+::-webkit-input-placeholder { 
+  color: inherit;
+ 	opacity: 0.6;
+  font-size: inherit;
+}
+:-moz-placeholder {
+ 	color: inherit;
+ 	opacity: 0.6;
+  font-size: inherit;
+}
+::-moz-placeholder {
+ 	color: inherit;
+ 	opacity: 0.6;
+  font-size: inherit;
+}
+:-ms-input-placeholder {
+ 	color: inherit;
+ 	opacity: 0.6;
+  font-size: inherit;
+}
+
+input, select {
+  background-color: white;
+  border: 1px solid darken(color(gray, default), 10%);
+  border-radius: $borderRadius;
+  box-shadow: inset 0 1px 2px rgba(color(base, black), .075);
+  color: inherit;
+  font-size: 13px; 
+	min-height: 34px;
+  outline: none;
+  padding: 7px 8px;
+	transition: border-color 0.25s, box-shadow 0.25s;
+  vertical-align: middle; 
+
+  &:focus {
+  	border-color: lighten(color(base, blue), 20%);
+  	box-shadow: 0 0 5px rgba(color(base, blue), 0.15);
+  }
+}
+
+button {
+  appearance: none;
+  background-color: color(gray, default);
+  background-image: linear-gradient(color(gray, light), color(gray, default));
+  border: 1px solid darken(color(gray, default), 10%);
+  border-radius: $borderRadius;
+  color: #333;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 20px;
+  outline: none;
+  padding: 6px 12px;
+	position: relative;
+	transition: background-image 0.25s, border-color 0.25s, box-shadow 0.25s;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;   
+
+  &:hover {
+    background-image: linear-gradient(darken(color(gray, light), 2.5%), darken(color(gray, default), 3%) );
+    border-color: #ccc;
+  }
+
+  &:focus {
+  	border-color: lighten(color(base, blue), 20%);
+  	box-shadow: 0 0 5px rgba(color(base, blue), 0.15);
+  }
+
+  &:active {
+    box-shadow: inset 0 2px 4px rgba(color(gray, dark),0.15);
+  }
+}
