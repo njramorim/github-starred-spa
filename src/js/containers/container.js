@@ -2,7 +2,7 @@ import React,  { Component } from 'react'
 import Card from './../components/card'
 import CardWrap from './../components/cardWrap'
 import Search from './../components/search'
-import { dataHandler } from './../utils/dataHandler' 
+import { dataHandler } from './../utils/dataHandler'
 import { getData } from './../utils/getData'
 import { validate } from './../utils/validate'
 import { compare } from './../utils/compare'
@@ -25,7 +25,7 @@ export default class Container extends Component {
       unfilteredStars: '',
       user: '',
       ready: false
-    }  
+    }
   }
 
   typeUser = (event) => {
@@ -34,7 +34,7 @@ export default class Container extends Component {
 
   submitUser = (event) => {
     event.preventDefault()
-    validate(this.state.user, this.state.lastUser) ? 
+    validate(this.state.user, this.state.lastUser) ?
       dataHandler(this) : this.errorHandler()
   }
 
@@ -48,11 +48,11 @@ export default class Container extends Component {
   order = (param, descrescent = true) => {
 		const data = this.state.stars
     if (checkOrder(this, param, descrescent)) {
-      
-      let newData = param === 'name' ? 
+
+      let newData = param === 'name' ?
         data.sort(compareString(param, descrescent)) :
-        data.sort(compare(param, descrescent)) 
-        
+        data.sort(compare(param, descrescent))
+
       this.setState({
         order: `${param}-${descrescent}`,
         stars: newData,
@@ -87,25 +87,25 @@ export default class Container extends Component {
 		let { state } = this
 
 		return <div className={state.ready ? 'active' : ''}>
-      <Search 
+      <Search
         userChange = { this.typeUser }
         userSubmit = { this.submitUser }
         val = { state.user }
       >
-        { state.error && 
+        { state.error &&
           <div className="error">
             <span>{state.errorMessage}</span>
           </div>
         }
       </Search>
 
-      { state.ready && 
-      	<CardWrap  
-          order = { this.order } 
+      { state.ready &&
+      	<CardWrap
+          order = { this.order }
           filter = { this.filterBy }
           filterBy = { state.filterBy }
           options = { state.filters && state.filters.map((item, index) => {
-            return item != undefined ? 
+            return item != undefined ?
               <option key={index}>
                 {item}
               </option> : null
@@ -113,7 +113,7 @@ export default class Container extends Component {
         >
 					{ state.stars.map((item, index) => {
 			    	return <li key = { index } >
-			    	 <Card 
+			    	 <Card
 			    	 	avatar_url = {item.owner.avatar_url}
 			    	 	created_at = {formatTime(item.created_at)}
 			    	 	description = {item.description}
@@ -126,7 +126,7 @@ export default class Container extends Component {
 			    	 />
 			    	</li>
 			  	}) }
-				</CardWrap> 
+				</CardWrap>
 			}
     </div>
 	}
